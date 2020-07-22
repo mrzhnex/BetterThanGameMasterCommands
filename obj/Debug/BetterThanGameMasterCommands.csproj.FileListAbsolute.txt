@@ -127,7 +127,6 @@ E:\SCP SL plugins\BetterThanGameMasterCommands\bin\Debug\UnityEngine.WindModule.
 E:\SCP SL plugins\BetterThanGameMasterCommands\bin\Debug\UnityEngine.ARModule.dll
 E:\SCP SL plugins\BetterThanGameMasterCommands\bin\Debug\UnityEngine.XRModule.dll
 E:\SCP SL plugins\BetterThanGameMasterCommands\bin\Debug\UnityEngine.InputModule.dll
-E:\SCP SL plugins\BetterThanGameMasterCommands\obj\Debug\BetterThanGameMasterCommands.csprojAssemblyReference.cache
 E:\SCP SL plugins\BetterThanGameMasterCommands\obj\Debug\BetterThanGameMasterCommands.csproj.CoreCompileInputs.cache
 E:\SCP SL plugins\BetterThanGameMasterCommands\obj\Debug\BetterThanGameMasterCommands.csproj.CopyComplete
 E:\SCP SL plugins\BetterThanGameMasterCommands\obj\Debug\BetterThanGameMasterCommands.dll

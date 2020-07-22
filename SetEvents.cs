@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BetterThanGameMasterCommands
 {
-    internal class SetEvents
+    public class SetEvents
     {
         public void On079TeslaGate(ref Scp079TriggerTeslaEvent ev)
         {
@@ -23,6 +23,7 @@ namespace BetterThanGameMasterCommands
             switch (args[0])
             {
                 case "tesla":
+                    ev.Allow = false;
                     Global.enableTesla = !Global.enableTesla;
                     if (Global.enableTesla)
                     {
@@ -38,6 +39,7 @@ namespace BetterThanGameMasterCommands
                     }
                     return;
                 case "removeitems":
+                    ev.Allow = false;
                     if (args.Length != 2)
                     {
                         ev.Sender.RAMessage("Неправильное использование", false);
@@ -52,6 +54,7 @@ namespace BetterThanGameMasterCommands
                     ev.Sender.RAMessage("У игрока " + Player.GetPlayer(args[1]).nicknameSync.Network_myNickSync + " были удалены все предметы");
                     return;
                 case "mtf682":
+                    ev.Allow = false;
                     Global.mtf682spawn = !Global.mtf682spawn;
                     if (Global.mtf682spawn)
                         ev.Sender.RAMessage("MTF Spawn set to GATE A");
@@ -59,6 +62,7 @@ namespace BetterThanGameMasterCommands
                         ev.Sender.RAMessage("MTF Spawn set to GATE B (default)");
                     return;
                 case "slay":
+                    ev.Allow = false;
                     if (args.Length != 2)
                     {
                         ev.Sender.RAMessage("Неправильное использование", false);

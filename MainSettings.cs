@@ -4,8 +4,8 @@ namespace BetterThanGameMasterCommands
 {
     public class MainSettings : Plugin
     {
-        public override string getName => "BetterThanGameMasterCommands";
-        private SetEvents SetEvents;
+        public override string getName => nameof(BetterThanGameMasterCommands);
+        public SetEvents SetEvents { get; set; }
 
         public override void OnEnable()
         {
@@ -15,6 +15,7 @@ namespace BetterThanGameMasterCommands
             Events.PlayerSpawnEvent += SetEvents.OnPlayerSpawn;
             Events.Scp079TriggerTeslaEvent += SetEvents.On079TeslaGate;
             Events.TriggerTeslaEvent += SetEvents.OnPlayerTriggerTesla;
+            Log.Info(getName + " on");
         }
 
         public override void OnDisable()
@@ -24,6 +25,7 @@ namespace BetterThanGameMasterCommands
             Events.PlayerSpawnEvent -= SetEvents.OnPlayerSpawn;
             Events.Scp079TriggerTeslaEvent -= SetEvents.On079TeslaGate;
             Events.TriggerTeslaEvent -= SetEvents.OnPlayerTriggerTesla;
+            Log.Info(getName + " off");
         }
 
         public override void OnReload() { }
