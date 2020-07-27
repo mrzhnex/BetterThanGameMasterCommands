@@ -1,33 +1,31 @@
-﻿using EXILED;
+﻿using Exiled.API.Features;
 
 namespace BetterThanGameMasterCommands
 {
-    public class MainSettings : Plugin
+    public class MainSettings : Plugin<Config>
     {
-        public override string getName => nameof(BetterThanGameMasterCommands);
+        public override string Name => nameof(BetterThanGameMasterCommands);
         public SetEvents SetEvents { get; set; }
 
-        public override void OnEnable()
+        public override void OnEnabled()
         {
             SetEvents = new SetEvents();
-            Events.RemoteAdminCommandEvent += SetEvents.OnRemoteAdminCommand;
-            Events.WaitingForPlayersEvent += SetEvents.OnWaitingForPlayers;
-            Events.PlayerSpawnEvent += SetEvents.OnPlayerSpawn;
-            Events.Scp079TriggerTeslaEvent += SetEvents.On079TeslaGate;
-            Events.TriggerTeslaEvent += SetEvents.OnPlayerTriggerTesla;
-            Log.Info(getName + " on");
+            Exiled.Events.Handlers.Server.SendingRemoteAdminCommand += SetEvents.OnSendingRemoteAdminCommand;
+            Exiled.Events.Handlers.Server.WaitingForPlayers += SetEvents.OnWaitingForPlayers;
+            Exiled.Events.Handlers.Scp079.InteractingTesla += SetEvents.OnInteractionTesla;
+            Exiled.Events.Handlers.Player.TriggeringTesla += SetEvents.OnTriggeringTesla;
+            Exiled.Events.Handlers.Player.Spawning += SetEvents.OnSpawning;
+            Log.Info(Name + " on");
         }
 
-        public override void OnDisable()
+        public override void OnDisabled()
         {
-            Events.RemoteAdminCommandEvent -= SetEvents.OnRemoteAdminCommand;
-            Events.WaitingForPlayersEvent -= SetEvents.OnWaitingForPlayers;
-            Events.PlayerSpawnEvent -= SetEvents.OnPlayerSpawn;
-            Events.Scp079TriggerTeslaEvent -= SetEvents.On079TeslaGate;
-            Events.TriggerTeslaEvent -= SetEvents.OnPlayerTriggerTesla;
-            Log.Info(getName + " off");
+            Exiled.Events.Handlers.Server.SendingRemoteAdminCommand -= SetEvents.OnSendingRemoteAdminCommand;
+            Exiled.Events.Handlers.Server.WaitingForPlayers -= SetEvents.OnWaitingForPlayers;
+            Exiled.Events.Handlers.Scp079.InteractingTesla -= SetEvents.OnInteractionTesla;
+            Exiled.Events.Handlers.Player.TriggeringTesla -= SetEvents.OnTriggeringTesla;
+            Exiled.Events.Handlers.Player.Spawning -= SetEvents.OnSpawning;
+            Log.Info(Name + " off");
         }
-
-        public override void OnReload() { }
     }
 }
